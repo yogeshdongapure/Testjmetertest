@@ -1,0 +1,12 @@
+node {
+
+               echo "STAGE: Checkout Source >>> STARTS";
+               stage('Git Checkout'){
+                    checkout scm
+                }
+                echo "STAGE: Checkout Source >>> ENDS";
+
+                stage ('Run JMeter Test'){
+                bat 'C:/JMeter/bin/jmeter -n -t C:/JMeter/bin/RestApiTest.jmx -l RestApiTest1.jtl'
+                }
+ }
